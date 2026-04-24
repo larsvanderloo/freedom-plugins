@@ -7,7 +7,10 @@ Monorepo containing my Claude Code plugins. Each top-level directory is a self-c
 | Directory | Version | Description |
 |---|---|---|
 | [`session-discipline/`](./session-discipline) | v0.1.1 | Project-management discipline for long-running Claude Code sessions. Advisory orchestration, handoff docs, CHANGELOG continuity, rollback-as-release, user-judged A/B. Domain-agnostic. |
-| [`marketing-team-freedom/`](./marketing-team-freedom) | v0.1.0 | Virtual marketing team — strategist, copywriter, hook-writer, brand-voice guardian, channel-adapter, orchestrator. Treats marketing as a structured Markdown-based pipeline. |
+| [`marketing-team-freedom/`](./marketing-team-freedom) | v0.1.0 | Virtual marketing team — strategist, copywriter, hook-writer, brand-voice guardian, channel-adapter, orchestrator. Structured Markdown-based content pipeline. |
+| [`figma-plugin-freedom/`](./figma-plugin-freedom) | v0.1.0 | Figma plugin development — API research, manifest specialist, plugin runtime, iframe UI. Handles TypeScript scaffolding through Community submission. |
+| [`webapp-freedom/`](./webapp-freedom) | v0.1.0 | Full-stack web app — product research, data model, API design, end-to-end impl. Stack-agnostic (React/Vue/Svelte × Node/Python/Go × Postgres/Neon). |
+| [`cli-tool-freedom/`](./cli-tool-freedom) | v0.1.0 | CLI tool shipping — spec-first design, language-agnostic impl (Go/Rust/Python/Node), shell completions, multi-channel release (brew/npm/cargo/scoop). |
 
 ## Installing one plugin
 
@@ -67,14 +70,9 @@ Each plugin's `.claude-plugin/plugin.json` carries its own `version` field, bump
 4. Update `scripts/build-zips.sh` to include the new plugin
 5. Commit + tag: `<new-plugin>-v0.1.0`
 
-## Design specs (not yet built)
+## Design specs
 
-See [`DESIGN-SPECS.md`](./DESIGN-SPECS.md) for planned plugins:
-- `figma-plugin-freedom` — agents/skills for Figma plugin development
-- `webapp-freedom` — full-stack web app lifecycle (stack-agnostic)
-- `cli-tool-freedom` — language-agnostic CLI shipping
-
-Each is a ~2-hour scaffold when triggered by a real project.
+See [`DESIGN-SPECS.md`](./DESIGN-SPECS.md) for the original design notes of the now-shipped plugins (figma / webapp / cli) — preserved for reference + as a template for future plugins. When you design a new plugin, follow the same three-questions recipe at the bottom of that file.
 
 ## Composition
 
@@ -83,10 +81,10 @@ Each is a ~2-hour scaffold when triggered by a real project.
 ```
 session-discipline            ← overlay (works with anything)
     │
-    ├── marketing-team-freedom     ← content production overlay-consumer
-    ├── (figma-plugin-freedom)     ← code production overlay-consumer
-    ├── (webapp-freedom)           ← code production overlay-consumer
-    └── (cli-tool-freedom)         ← code production overlay-consumer
+    ├── marketing-team-freedom     ← content production
+    ├── figma-plugin-freedom       ← Figma plugin dev
+    ├── webapp-freedom             ← full-stack web apps
+    └── cli-tool-freedom           ← CLI tools
 ```
 
 Run any subset you need in a session.
