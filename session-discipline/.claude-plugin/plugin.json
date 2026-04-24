@@ -1,0 +1,12 @@
+{
+  "name": "session-discipline",
+  "description": "Project-management discipline for long-running Claude Code sessions: advisory orchestration, handoff docs, CHANGELOG continuity, backlog hygiene, investigation branches, rollback-as-release, and A/B audition framework. Domain-agnostic — works on any codebase.",
+  "version": "0.1.1",
+  "author": {
+    "name": "Lars van der Loo",
+    "email": "info@larsvanderloo.com"
+  },
+  "homepage": "https://github.com/larsvanderloo/session-discipline-plugin",
+  "repository": "https://github.com/larsvanderloo/session-discipline-plugin",
+  "license": "MIT"
+}
