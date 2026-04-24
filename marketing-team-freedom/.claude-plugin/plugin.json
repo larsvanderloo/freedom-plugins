@@ -1,0 +1,12 @@
+{
+  "name": "marketing-team-freedom",
+  "description": "A virtual marketing team in a Claude Code plugin — strategist, copywriter, hook-writer, brand-voice guardian, channel-adapter, and orchestrator. Treats marketing as a structured pipeline: positioning → brief → copy → voice-check → channel-adapt → publish → post-mortem. Deliverables are versioned Markdown files, not code. Designed to layer on top of session-discipline for handoff docs, continuous CHANGELOGs, and rollback-as-release.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Lars van der Loo",
+    "email": "info@larsvanderloo.com"
+  },
+  "homepage": "https://github.com/larsvanderloo/marketing-team-freedom",
+  "repository": "https://github.com/larsvanderloo/marketing-team-freedom",
+  "license": "MIT"
+}
