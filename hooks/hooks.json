@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "SubagentStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/agent-git-boundary.sh",
+            "statusMessage": "Injecting forbidden-git-ops guardrail"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "if": "Bash(git tag *)",
+            "command": "${CLAUDE_PLUGIN_ROOT}/hooks/scripts/version-bump-sync.sh",
+            "statusMessage": "Checking version.h/CMakeLists/package.json sync"
+          }
+        ]
+      }
+    ]
+  }
+}
