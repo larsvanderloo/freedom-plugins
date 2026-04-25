@@ -29,7 +29,7 @@ Invoke `hook-writer` with:
 1. Read the options list.
 2. Present the top 3 picks to the user with the hook-writer's reasoning.
 3. Optional: dispatch `brand-voice-guardian` to voice-check the top 3 before user locks.
-4. If user is genuinely torn between 2 top picks, escalate to `/session-discipline:ab-audition` — have them run both in the real channel and let audience decide.
+4. If user is genuinely torn between 2 top picks, escalate to `/studio:ab-audition` — have them run both in the real channel and let audience decide.
 
 ## Don't
 

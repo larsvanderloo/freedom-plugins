@@ -97,7 +97,7 @@ A FEAT is promoted when:
 2. It's unblocked by a closed FEAT that was blocking it, OR
 3. A measurement shows it's become urgent (e.g. performance regression cause).
 
-When promoted, create an investigation branch (`/session-discipline:investigation-branch`) or start direct work on main per the orchestrator's proposal. Update the FEAT heading to `— IN PROGRESS on <branch>`.
+When promoted, create an investigation branch (`/studio:investigation-branch`) or start direct work on main per the orchestrator's proposal. Update the FEAT heading to `— IN PROGRESS on <branch>`.
 
 ## Closing a FEAT
 

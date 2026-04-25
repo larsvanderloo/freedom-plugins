@@ -1,4 +1,4 @@
-Below are 20 simulated user messages. For EACH, predict which session-discipline skill (if any) you would invoke, and give a one-line rationale. Format EXACTLY like:
+Below are 20 simulated user messages. For EACH, predict which studio skill (if any) you would invoke, and give a one-line rationale. Format EXACTLY like:
 
 N) <skill-name-or-"NONE">  — <rationale>
 

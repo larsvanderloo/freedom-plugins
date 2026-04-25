@@ -29,7 +29,7 @@ First public release of `marketing-team-freedom`, a Claude Code plugin that pack
 
 ### Designed to compose with
 
-- [`session-discipline`](../session-discipline-plugin/) — handoff docs, CHANGELOG continuity, rollback-as-release, advisory orchestration. Recommended companion install.
+- [`studio`](../studio-plugin/) — handoff docs, CHANGELOG continuity, rollback-as-release, advisory orchestration. Recommended companion install.
 
 ### Tested with
 

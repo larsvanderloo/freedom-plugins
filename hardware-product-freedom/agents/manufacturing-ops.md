@@ -221,5 +221,5 @@ Provide your compliance roadmap to the CM. Some CMs have in-house labs; others o
 - Vendor selected → submit RFQ
 - Pilot-1 issues → back to schematic-pcb-spec OR cad-spec depending on issue
 - Compliance issues at lab → compliance-emc agent + lab consultant
-- Production yield issues → root-cause investigation (use `/session-discipline:investigation-branch`)
-- Customer support feedback post-launch → loop into design backlog via `/session-discipline:backlog`
+- Production yield issues → root-cause investigation (use `/studio:investigation-branch`)
+- Customer support feedback post-launch → loop into design backlog via `/studio:backlog`

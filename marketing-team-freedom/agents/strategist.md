@@ -144,5 +144,5 @@ Four Markdown files, all at the project root:
 
 ## Forbidden git operations
 
-<!-- Injected by session-discipline/agent-git-boundary hook if that plugin is installed. -->
+<!-- Injected by studio/agent-git-boundary hook if that plugin is installed. -->
 If you have Bash access: no `git commit`, no `git tag`, no `git push`, no branch mutations. You describe changes and the orchestrator owns commits.

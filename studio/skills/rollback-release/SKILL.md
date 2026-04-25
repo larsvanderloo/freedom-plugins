@@ -94,7 +94,7 @@ Don't force-push. Don't untag v0.20.5. Both versions must remain discoverable.
 
 ### 7. File a handoff (if not already)
 
-The rollback is only valid if someone (future you) is going to chase the root cause. Ensure a `HANDOFF-<topic>.md` exists (via `/session-discipline:handoff-doc`) that describes:
+The rollback is only valid if someone (future you) is going to chase the root cause. Ensure a `HANDOFF-<topic>.md` exists (via `/studio:handoff-doc`) that describes:
 - What's being investigated
 - Why the rollback was chosen over fix-forward
 - The reproduction steps using the preserved failing-state tag

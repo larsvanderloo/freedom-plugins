@@ -2,7 +2,7 @@
 
 **A virtual marketing team for Claude Code.** Six specialised agents (strategist, copywriter, hook-writer, brand-voice-guardian, channel-adapter, marketing-orchestrator) plus seven skills that treat marketing as a structured, versionable pipeline — positioning → brief → copy → voice-check → channel-adapt → publish → post-mortem.
 
-Designed to layer on top of [`session-discipline`](../session-discipline-plugin/) for handoff docs, CHANGELOG continuity, and rollback-as-release. Works standalone or together.
+Designed to layer on top of [`studio`](../studio-plugin/) for handoff docs, CHANGELOG continuity, and rollback-as-release. Works standalone or together.
 
 ## Why this exists
 
@@ -17,11 +17,11 @@ git clone https://github.com/larsvanderloo/marketing-team-freedom ~/plugins/mark
 claude --plugin-dir ~/plugins/marketing-team-freedom
 ```
 
-Recommended: install alongside `session-discipline` for the session-overlay discipline:
+Recommended: install alongside `studio` for the session-overlay discipline:
 
 ```bash
 claude \
-  --plugin-dir ~/plugins/session-discipline \
+  --plugin-dir ~/plugins/studio \
   --plugin-dir ~/plugins/marketing-team-freedom
 ```
 
@@ -135,7 +135,7 @@ Some components are more general than marketing:
 - `channel-adapter` works for any content you'd multi-publish (engineering blog posts, conference talks → blog → Twitter)
 - `post-mortem` template is useful for any shipped-artefact review
 
-But the full pipeline is designed for marketing campaigns specifically. For engineering, use `session-discipline` + a technical plugin (like `plugin-freedom-system-audio` for audio DSP, or the `figma-plugin-freedom` / `webapp-freedom` templates).
+But the full pipeline is designed for marketing campaigns specifically. For engineering, use `studio` + a technical plugin (like `plugin-freedom-system-audio` for audio DSP, or the `figma-plugin-freedom` / `webapp-freedom` templates).
 
 ## Development
 
@@ -157,4 +157,4 @@ MIT — see [LICENSE](LICENSE).
 
 ## Credits
 
-Built as the non-engineering counterpart to `session-discipline`. Extracted from the patterns of real marketing work, designed to dogfood the "encode working habits as reusable Claude Code plugins" approach beyond software domains.
+Built as the non-engineering counterpart to `studio`. Extracted from the patterns of real marketing work, designed to dogfood the "encode working habits as reusable Claude Code plugins" approach beyond software domains.

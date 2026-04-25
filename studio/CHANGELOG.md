@@ -1,5 +1,31 @@
 # Changelog
 
+## [0.2.0] — 2026-04-25 (renamed: session-discipline → studio)
+
+### What changed
+
+- **Plugin name:** `session-discipline` → `studio`
+- **Skill namespace:** `/session-discipline:*` → `/studio:*` (all 7 skills: orchestrate, handoff-doc, changelog-discipline, backlog, investigation-branch, rollback-release, ab-audition)
+- **Agent name:** `session-orchestrator` → `studio-orchestrator`
+- **No content changes** — every skill body, every hook, every behaviour identical to v0.1.1. Pure rename + namespace bump.
+
+### Why
+
+"session-discipline" overloaded Claude Code's native session concept. "studio" maps cleaner onto what the plugin actually does — the team / studio overlay running across whatever other plugins are loaded.
+
+### Migration from v0.1.1
+
+1. Replace `session-discipline` with `studio` in your `--plugin-dir` flags (or upload `studio.zip` via claude.ai after uninstalling `session-discipline`)
+2. `/session-discipline:orchestrate` → `/studio:orchestrate` (same for all 7 skills)
+3. Agent renamed `session-orchestrator` → `studio-orchestrator`
+4. Hooks behave identically
+
+The `session-discipline-v0.1.1` git tag is preserved.
+
+### Cross-references in domain plugins
+
+All 6 domain plugins (audio, marketing, figma, webapp, cli, hardware) updated to reference `/studio:*` instead of `/session-discipline:*`. Each gets a patch-bump for the cross-reference changes.
+
 ## [0.1.1] — 2026-04-24 (SKILL description refinement based on scenario testing)
 
 ### What this fixes
@@ -47,11 +73,11 @@ Preserved scenarios at `examples/scenario-tests/` for future re-runs.
 
 ## [0.1.0] — 2026-04-24 (initial release — patterns extracted from ods-engine)
 
-First public release of `session-discipline`, a Claude Code plugin distilling project-management discipline from a real multi-week audio-DSP engineering arc.
+First public release of `studio`, a Claude Code plugin distilling project-management discipline from a real multi-week audio-DSP engineering arc.
 
 ### What ships
 
-- **7 skills**, all namespaced as `/session-discipline:<name>`:
+- **7 skills**, all namespaced as `/studio:<name>`:
   - `orchestrate` — advisory-mode project orchestrator
   - `handoff-doc` — cross-session continuity with structured template
   - `changelog-discipline` — continuous measurement-driven CHANGELOG

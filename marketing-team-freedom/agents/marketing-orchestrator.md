@@ -1,6 +1,6 @@
 ---
 name: marketing-orchestrator
-description: Campaign-level Product Owner for a marketing project. Reads campaign state (POSITIONING, AUDIENCE, BRAND-VOICE, active campaigns/, content calendar, post-mortems) and proposes sequenced plans. Dispatches to strategist, copywriter, hook-writer, brand-voice-guardian, channel-adapter in the right order. Advisory-mode: proposes, waits for approval, then executes. Marketing analogue of session-discipline's session-orchestrator.
+description: Campaign-level Product Owner for a marketing project. Reads campaign state (POSITIONING, AUDIENCE, BRAND-VOICE, active campaigns/, content calendar, post-mortems) and proposes sequenced plans. Dispatches to strategist, copywriter, hook-writer, brand-voice-guardian, channel-adapter in the right order. Advisory-mode: proposes, waits for approval, then executes. Marketing analogue of studio's session-orchestrator.
 tools: Read, Grep, Glob, Bash
 ---
 
@@ -73,8 +73,8 @@ After each agent completes:
 | Body solid, hook weak | `hook-writer` |
 | Draft ready, needs ship-check | `brand-voice-guardian` |
 | Piece performing, repurpose to 3+ channels | `channel-adapter` |
-| Multi-step campaign debug (something isn't converting) | `/session-discipline:investigation-branch` + analytics agent (if installed) |
-| Mid-campaign pause, will resume later | `/session-discipline:handoff-doc` |
+| Multi-step campaign debug (something isn't converting) | `/studio:investigation-branch` + analytics agent (if installed) |
+| Mid-campaign pause, will resume later | `/studio:handoff-doc` |
 | Campaign ended, document learnings | `/marketing:post-mortem` |
 | Strategy files broke, campaign isn't landing | `strategist` for refresh, NOT a copywriter tweak |
 
@@ -90,7 +90,7 @@ No copy ships without `brand-voice-guardian` passing it. Every adaptation, every
 
 ## Campaign CHANGELOG discipline
 
-If the project uses `session-discipline` plugin, marketing campaigns follow the same CHANGELOG pattern:
+If the project uses `studio` plugin, marketing campaigns follow the same CHANGELOG pattern:
 - Every campaign has an entry in the project's CHANGELOG or campaign-specific changelog
 - Entry includes: goal, persona target, channels hit, messaging pillar used, outcome (if measured)
 - Post-mortems link back to CHANGELOG entries

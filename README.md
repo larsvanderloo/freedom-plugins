@@ -6,7 +6,7 @@ Monorepo containing my Claude Code plugins. Each top-level directory is a self-c
 
 | Directory | Version | Description |
 |---|---|---|
-| [`session-discipline/`](./session-discipline) | v0.1.1 | Project-management discipline for long-running sessions. Advisory orchestration, handoff docs, CHANGELOG continuity, rollback-as-release, user-judged A/B. Domain-agnostic. **Overlay — recommended alongside any other plugin.** |
+| [`studio/`](./studio) | v0.2.0 | Project-management overlay for long-running sessions. Advisory orchestration, handoff docs, CHANGELOG continuity, rollback-as-release, user-judged A/B. Domain-agnostic. Renamed from `session-discipline` v0.1.1. **Overlay — recommended alongside any other plugin.** |
 | [`marketing-team-freedom/`](./marketing-team-freedom) | v0.1.0 | Virtual marketing team — strategist, copywriter, hook-writer, brand-voice guardian, channel-adapter, orchestrator. Structured Markdown-based content pipeline. |
 | [`figma-plugin-freedom/`](./figma-plugin-freedom) | v0.1.0 | Figma plugin development — API research, manifest specialist, plugin runtime, iframe UI. TypeScript scaffolding through Community submission. |
 | [`webapp-freedom/`](./webapp-freedom) | v0.1.0 | Full-stack web app — product research, data model, API design, end-to-end impl. Stack-agnostic (React/Vue/Svelte × Node/Python/Go × Postgres). |
@@ -18,10 +18,10 @@ Monorepo containing my Claude Code plugins. Each top-level directory is a self-c
 
 ```bash
 # Clone or symlink a single plugin directory:
-claude --plugin-dir ./session-discipline
+claude --plugin-dir ./studio
 
 # Multiple plugins in one session:
-claude --plugin-dir ./session-discipline --plugin-dir ./marketing-team-freedom
+claude --plugin-dir ./studio --plugin-dir ./marketing-team-freedom
 ```
 
 ## Uploading as zip (claude.ai plugin UI)
@@ -39,8 +39,8 @@ claude --plugin-dir ./session-discipline --plugin-dir ./marketing-team-freedom
 Tags are prefixed with the plugin name so multiple plugins can coexist in one repo:
 
 ```
-session-discipline-v0.1.0
-session-discipline-v0.1.1
+studio-v0.1.0
+studio-v0.1.1
 marketing-team-freedom-v0.1.0
 ...
 ```
@@ -78,10 +78,10 @@ See [`DESIGN-SPECS.md`](./DESIGN-SPECS.md) for the original design notes of the 
 
 ## Composition
 
-`session-discipline` is the **overlay** — it layers on top of any other plugin in this repo for session-level discipline (orchestration, handoffs, CHANGELOGs, rollbacks). The other plugins are domain-specific and can run standalone or in combination with session-discipline.
+`studio` is the **overlay** — it layers on top of any other plugin in this repo for session-level discipline (orchestration, handoffs, CHANGELOGs, rollbacks). The other plugins are domain-specific and can run standalone or in combination with studio.
 
 ```
-session-discipline            ← overlay (works with anything)
+studio            ← overlay (works with anything)
     │
     ├── marketing-team-freedom        ← content production
     ├── figma-plugin-freedom          ← Figma plugin dev
@@ -91,7 +91,7 @@ session-discipline            ← overlay (works with anything)
     └── hardware-product-freedom      ← hardware (ID + electronics + manufacturing)
 ```
 
-**For complex multi-domain projects** (e.g. software-engine → hardware-pedal → market launch), load multiple plugins simultaneously. Each plugin's namespace prevents collisions; orchestrators dispatch within domain; `session-discipline` provides the cross-cutting overlay.
+**For complex multi-domain projects** (e.g. software-engine → hardware-pedal → market launch), load multiple plugins simultaneously. Each plugin's namespace prevents collisions; orchestrators dispatch within domain; `studio` provides the cross-cutting overlay.
 
 Run any subset you need in a session.
 

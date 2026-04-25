@@ -2,7 +2,7 @@
 
 Claude Code plugin for **shipping a hardware product** end-to-end. Combines industrial design + electronics engineering + manufacturing operations into a single coordinated team. 11 specialised agents + 10 skills.
 
-Designed to layer on [`session-discipline`](../session-discipline) for the session overlay.
+Designed to layer on [`studio`](../studio) for the session overlay.
 
 ## When to use
 
@@ -20,7 +20,7 @@ For **software audio plugins only** (no hardware), use [`audio-plugin-freedom`](
 
 ```bash
 claude \
-  --plugin-dir ~/Documents/Claude/claude-plugins/session-discipline \
+  --plugin-dir ~/Documents/Claude/claude-plugins/studio \
   --plugin-dir ~/Documents/Claude/claude-plugins/hardware-product-freedom
 ```
 
@@ -138,9 +138,9 @@ For a complete software-engine → pedal → market arc:
 | `audio-plugin-freedom` | Engine baseline + embedded firmware port |
 | `hardware-product-freedom` | Industrial design + electronics + manufacturing |
 | `marketing-team-freedom` | Positioning + launch campaign |
-| `session-discipline` | Overlay across all phases |
+| `studio` | Overlay across all phases |
 
-Load all four together. Each plugin's namespace prevents collisions; the orchestrators dispatch within their domain; `session-discipline` provides the cross-cutting overlay.
+Load all four together. Each plugin's namespace prevents collisions; the orchestrators dispatch within their domain; `studio` provides the cross-cutting overlay.
 
 ## Philosophy
 

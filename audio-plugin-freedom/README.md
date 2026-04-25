@@ -4,13 +4,13 @@ Claude Code plugin for JUCE audio plugin development. **The full agent team behi
 
 14 specialised agents covering Stage 0 (research) through Stage 6+ (release), 13 skills for the typical workflows. Proven across 20+ tagged releases on a real-world non-trivial DSP project.
 
-Designed to layer on [`session-discipline`](../session-discipline) for the session overlay (handoff docs, CHANGELOG, rollback-as-release).
+Designed to layer on [`studio`](../studio) for the session overlay (handoff docs, CHANGELOG, rollback-as-release).
 
 ## Install
 
 ```bash
 claude \
-  --plugin-dir ~/Documents/Claude/claude-plugins/session-discipline \
+  --plugin-dir ~/Documents/Claude/claude-plugins/studio \
   --plugin-dir ~/Documents/Claude/claude-plugins/audio-plugin-freedom
 ```
 
@@ -79,7 +79,7 @@ Or upload `audio-plugin-freedom.zip` via claude.ai → Plugins → Upload local 
 8. plugin-improve                             → ongoing maintenance
 ```
 
-`session-discipline` overlays this with handoff docs, CHANGELOG continuity, rollback releases, and orchestration discipline.
+`studio` overlays this with handoff docs, CHANGELOG continuity, rollback releases, and orchestration discipline.
 
 ## Provenance
 

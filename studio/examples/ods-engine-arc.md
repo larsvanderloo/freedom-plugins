@@ -1,6 +1,6 @@
 # Case study — ods-engine v0.20.5 → v0.20.8
 
-This is a real session arc that demonstrates every skill and hook in the session-discipline plugin working together. It's the source material the plugin was extracted from.
+This is a real session arc that demonstrates every skill and hook in the studio plugin working together. It's the source material the plugin was extracted from.
 
 **Project:** [ods-engine](https://github.com/larsvanderloo/ods-engine) — a C++17 static library modelling a Dumble ODS #124 tube amp, plus a JUCE plugin wrapper.
 

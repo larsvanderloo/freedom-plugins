@@ -37,7 +37,7 @@ Verify `<tool> --version` prints the new version after rebuild.
 
 ### Step 2 — Write CHANGELOG
 
-Use `/session-discipline:changelog-discipline` if that plugin is installed. Otherwise, add a top-of-file entry:
+Use `/studio:changelog-discipline` if that plugin is installed. Otherwise, add a top-of-file entry:
 
 ```markdown
 ## [<x.y.z>] — <YYYY-MM-DD>
@@ -67,7 +67,7 @@ git tag -a v<x.y.z> -m "v<x.y.z> — <headline>"
 git push origin main --tags
 ```
 
-If `session-discipline`'s `version-bump-sync` hook is installed, it'll verify the tag + version match.
+If `studio`'s `version-bump-sync` hook is installed, it'll verify the tag + version match.
 
 ### Step 4 — Dispatch `cli-distribution`
 
@@ -113,10 +113,10 @@ If the release includes breaking changes:
 
 If the release ships broken — users report bugs within 30 minutes of release:
 
-- Invoke `/session-discipline:rollback-release`
+- Invoke `/studio:rollback-release`
 - That ships v<x.y.z+1> as a rollback: either re-pin all distribution channels to the previous version, OR ship a new patch version that reverts the breaking change
 - Don't untag the broken release — keep it for diagnostic A/B work
-- File a handoff (`/session-discipline:handoff-doc`) for the post-mortem investigation
+- File a handoff (`/studio:handoff-doc`) for the post-mortem investigation
 
 ## Anti-patterns
 

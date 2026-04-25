@@ -23,7 +23,7 @@ Initial release of `figma-plugin-freedom`, a Claude Code plugin for building Fig
 
 ### Designed to compose with
 
-- `session-discipline` for session overlay (handoff docs, CHANGELOG, rollback-as-release)
+- `studio` for session overlay (handoff docs, CHANGELOG, rollback-as-release)
 
 ### Not yet included
 

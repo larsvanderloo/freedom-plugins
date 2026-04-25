@@ -1,5 +1,5 @@
 ---
-description: Write a structured campaign post-mortem — what we shipped, what the result was, what worked, what didn't, what we'd change, and what learnings feed back into strategy files. Saves to post-mortems/<campaign>-<date>.md. Non-blame, learning-oriented. Use after a campaign concludes (positive or negative result), or when a piece significantly over/under-performs expectations. Cross-references CHANGELOG if session-discipline is installed.
+description: Write a structured campaign post-mortem — what we shipped, what the result was, what worked, what didn't, what we'd change, and what learnings feed back into strategy files. Saves to post-mortems/<campaign>-<date>.md. Non-blame, learning-oriented. Use after a campaign concludes (positive or negative result), or when a piece significantly over/under-performs expectations. Cross-references CHANGELOG if studio is installed.
 ---
 
 # Post-mortem
@@ -127,7 +127,7 @@ Based on learnings, propose updates:
 
 ## CHANGELOG cross-reference
 
-If `session-discipline` is installed, this post-mortem should be referenced from the project's CHANGELOG entry for the campaign. Linked entries: <list>.
+If `studio` is installed, this post-mortem should be referenced from the project's CHANGELOG entry for the campaign. Linked entries: <list>.
 
 ---
 

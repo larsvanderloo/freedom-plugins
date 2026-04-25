@@ -1,6 +1,6 @@
 # Design specs — plugins not yet built
 
-Three planned plugins. Each is ~2 hours to scaffold using the pattern established by `session-discipline` + `marketing-team-freedom`. Build when a real project needs one, not speculatively.
+Three planned plugins. Each is ~2 hours to scaffold using the pattern established by `studio` + `marketing-team-freedom`. Build when a real project needs one, not speculatively.
 
 ## figma-plugin-freedom
 
@@ -25,7 +25,7 @@ Three planned plugins. Each is ~2 hours to scaffold using the pattern establishe
 
 **Hooks:** `PostToolUse` on `Edit` of manifest.json → lint/validate.
 
-**Language:** TypeScript. Depends on `session-discipline` for session overlay.
+**Language:** TypeScript. Depends on `studio` for session overlay.
 
 ---
 
@@ -56,7 +56,7 @@ Three planned plugins. Each is ~2 hours to scaffold using the pattern establishe
 
 **Stack-agnostic:** skills prompt for stack on first use, then remember via a `STACK.md` file in the repo.
 
-**Depends on:** `session-discipline`.
+**Depends on:** `studio`.
 
 ---
 
@@ -81,7 +81,7 @@ Three planned plugins. Each is ~2 hours to scaffold using the pattern establishe
 
 **Language-agnostic:** pick at scaffold time.
 
-**Depends on:** `session-discipline`.
+**Depends on:** `studio`.
 
 ---
 

@@ -2,13 +2,13 @@
 
 Claude Code plugin for full-stack web app development. Four agents + five skills that take a project from "we want to build an app" to "we shipped it", with committed contracts at each gate so implementation can parallelise.
 
-Stack-agnostic — pick frontend + backend + DB at `plan` time, remembered in `STACK.md`. Designed to layer on [`session-discipline`](../session-discipline) for the session overlay.
+Stack-agnostic — pick frontend + backend + DB at `plan` time, remembered in `STACK.md`. Designed to layer on [`studio`](../studio) for the session overlay.
 
 ## Install
 
 ```bash
 claude \
-  --plugin-dir ~/Documents/Claude/claude-plugins/session-discipline \
+  --plugin-dir ~/Documents/Claude/claude-plugins/studio \
   --plugin-dir ~/Documents/Claude/claude-plugins/webapp-freedom
 ```
 

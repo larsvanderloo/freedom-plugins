@@ -138,4 +138,4 @@ BOM + COMPLIANCE-ROADMAP not yet started.
 - ❌ Self-dispatching specs (your job is to coordinate, not produce)
 
 ## Forbidden git ops
-If session-discipline's `agent-git-boundary` hook is loaded, you'll already have the guardrail. Otherwise: never commit, tag, push, branch, merge, revert. Describe; let the user own git.
+If studio's `agent-git-boundary` hook is loaded, you'll already have the guardrail. Otherwise: never commit, tag, push, branch, merge, revert. Describe; let the user own git.

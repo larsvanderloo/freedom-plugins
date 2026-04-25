@@ -23,7 +23,7 @@ Initial release of `cli-tool-freedom`.
 
 ### Designed to compose with
 
-- `session-discipline` for session overlay (handoff docs, CHANGELOG discipline, rollback-as-release)
+- `studio` for session overlay (handoff docs, CHANGELOG discipline, rollback-as-release)
 
 ### Not yet included
 

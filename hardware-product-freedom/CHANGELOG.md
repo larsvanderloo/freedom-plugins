@@ -45,7 +45,7 @@ Initial release of `hardware-product-freedom`, a unified Claude Code plugin for 
 
 ### Designed to compose with
 
-- `session-discipline` — handoff docs, CHANGELOG continuity, rollback (e.g., revert from one electronics architecture to another)
+- `studio` — handoff docs, CHANGELOG continuity, rollback (e.g., revert from one electronics architecture to another)
 - `audio-plugin-freedom` — for the engine work that precedes hardware port
 - `marketing-team-freedom` — for the launch campaign
 - `industrial-design-team` — alternative for non-electronic hardware (mechanical tools, kitchenware, furniture)

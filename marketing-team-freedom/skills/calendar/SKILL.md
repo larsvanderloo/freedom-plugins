@@ -92,5 +92,5 @@ You:
 
 ## Integrations
 
-- If `session-discipline` plugin is installed, calendar changes get committed + CHANGELOG'd like any other artefact
+- If `studio` plugin is installed, calendar changes get committed + CHANGELOG'd like any other artefact
 - Post-mortem after a campaign should update the calendar's cadence targets if learnings suggest rebalance

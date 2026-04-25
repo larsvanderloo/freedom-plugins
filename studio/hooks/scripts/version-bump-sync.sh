@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# session-discipline plugin — PostToolUse hook on `git tag`
+# studio plugin — PostToolUse hook on `git tag`
 #
 # When a new tag is created, verify the version number in common manifest
 # files matches the tag. Catches drift like the "engine v0.19.5" label bug
@@ -70,14 +70,14 @@ if [ ${#warnings[@]} -eq 0 ]; then
     # All manifests match (or none exist). Emit a positive confirmation.
     cat <<JSON
 {
-  "systemMessage": "session-discipline: tag v$tag matches all found manifest versions ✓"
+  "systemMessage": "studio: tag v$tag matches all found manifest versions ✓"
 }
 JSON
     exit 0
 fi
 
 # Build a compound warning message
-msg="⚠ session-discipline VERSION SYNC WARNING (tag v$tag):\n"
+msg="⚠ studio VERSION SYNC WARNING (tag v$tag):\n"
 for w in "${warnings[@]}"; do
     msg+="  - $w\n"
 done

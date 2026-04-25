@@ -24,7 +24,7 @@ Initial release of `webapp-freedom`, a Claude Code plugin for full-stack web app
 
 ### Designed to compose with
 
-- `session-discipline` for session overlay (highly recommended)
+- `studio` for session overlay (highly recommended)
 
 ### Not yet included
 

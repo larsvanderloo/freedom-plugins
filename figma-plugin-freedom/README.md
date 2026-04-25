@@ -2,15 +2,15 @@
 
 Claude Code plugin for building Figma plugins. Four specialised agents + five skills that cover scaffolding, API research, manifest management, runtime implementation, UI iframe, local QA, and Community submission.
 
-TypeScript-first. Designed to layer on top of [`session-discipline`](../session-discipline) for the session overlay (handoff docs, CHANGELOG, rollback-as-release).
+TypeScript-first. Designed to layer on top of [`studio`](../studio) for the session overlay (handoff docs, CHANGELOG, rollback-as-release).
 
 ## Install
 
 ```bash
 claude --plugin-dir ~/Documents/Claude/claude-plugins/figma-plugin-freedom
-# Or combined with session-discipline:
+# Or combined with studio:
 claude \
-  --plugin-dir ~/Documents/Claude/claude-plugins/session-discipline \
+  --plugin-dir ~/Documents/Claude/claude-plugins/studio \
   --plugin-dir ~/Documents/Claude/claude-plugins/figma-plugin-freedom
 ```
 

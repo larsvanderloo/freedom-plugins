@@ -1,4 +1,4 @@
-# session-discipline
+# studio
 
 **Project-management discipline for long-running Claude Code sessions.**
 
@@ -20,7 +20,7 @@ This plugin encodes habits that fix each of those. Each habit is one skill.
 
 ## What you get
 
-### Skills (all namespaced as `/session-discipline:<name>`)
+### Skills (all namespaced as `/studio:<name>`)
 
 | Skill | What it does |
 |---|---|
@@ -47,10 +47,10 @@ This plugin encodes habits that fix each of those. Each habit is one skill.
 
 ```bash
 # Clone or copy this repo anywhere on disk:
-git clone https://github.com/larsvanderloo/session-discipline-plugin ~/plugins/session-discipline
+git clone https://github.com/larsvanderloo/studio-plugin ~/plugins/studio
 
 # Run Claude Code with the plugin loaded:
-claude --plugin-dir ~/plugins/session-discipline
+claude --plugin-dir ~/plugins/studio
 ```
 
 After a change to the plugin, run `/reload-plugins` inside Claude Code — no need to restart.
@@ -58,7 +58,7 @@ After a change to the plugin, run `/reload-plugins` inside Claude Code — no ne
 ### Via marketplace (once published)
 
 ```
-/plugin install session-discipline
+/plugin install studio
 ```
 
 ## Quick start
@@ -66,7 +66,7 @@ After a change to the plugin, run `/reload-plugins` inside Claude Code — no ne
 Drop into any codebase and run:
 
 ```
-/session-discipline:orchestrate
+/studio:orchestrate
 ```
 
 The orchestrator will read your git state, CHANGELOG, backlog, and any handoff docs, then propose what to work on next. Approve its plan or redirect.
@@ -74,7 +74,7 @@ The orchestrator will read your git state, CHANGELOG, backlog, and any handoff d
 Partway through a debug session, type:
 
 ```
-/session-discipline:handoff-doc
+/studio:handoff-doc
 ```
 
 ...and you'll have a ready-to-read doc for picking the investigation back up tomorrow.
@@ -82,7 +82,7 @@ Partway through a debug session, type:
 Before shipping a fix:
 
 ```
-/session-discipline:changelog-discipline
+/studio:changelog-discipline
 ```
 
 ...and the CHANGELOG entry will have the measurement table, investigation timeline (if applicable), and file list that makes the release auditable.
@@ -98,7 +98,7 @@ Current status: v0.20.8 shipped; plugin tagged; clean channel noise-free.
 Recommended:
   1. Close FEAT-7 in BACKLOG.md (~2 min) → direct edit
   2. Regenerate REVERT-TEST anchors at v0.20.8 baseline (~10 min) → dispatch to process-wav
-  3. File next session handoff if stopping (~5 min) → /session-discipline:handoff-doc
+  3. File next session handoff if stopping (~5 min) → /studio:handoff-doc
 
 Approve 1+2, or redirect?
 ```
@@ -160,8 +160,8 @@ Nothing about this plugin requires C++ or JUCE or audio tooling.
 claude --plugin-dir $(pwd)
 
 # Inside Claude Code:
-/help                        # should list session-discipline:<skill> entries
-/session-discipline:orchestrate  # dry-run on current project
+/help                        # should list studio:<skill> entries
+/studio:orchestrate  # dry-run on current project
 
 # Hot reload after edits:
 /reload-plugins

@@ -50,7 +50,7 @@ If the repro doesn't match, **stop and investigate the drift** before continuing
 
 ### Phase 3 — Enumerate hypotheses (cost-ordered)
 
-Write them down as H1, H2, ... — either inline as a commit message on the first commit, or in a `HANDOFF-<topic>.md` written via `/session-discipline:handoff-doc`.
+Write them down as H1, H2, ... — either inline as a commit message on the first commit, or in a `HANDOFF-<topic>.md` written via `/studio:handoff-doc`.
 
 Rank by **cost to test**, not by confidence. A 5-minute test you're 30% sure about comes before a 5-hour test you're 70% sure about, because you can run the cheap test and move on either way.
 
@@ -80,7 +80,7 @@ Design the **minimal fix**. Usually this is:
 - Restore any workarounds being retired
 - Update tests (old tests may have been calibrated to the buggy behaviour)
 - Run full test suite
-- Ship via `/session-discipline:changelog-discipline` with an investigation-timeline subsection
+- Ship via `/studio:changelog-discipline` with an investigation-timeline subsection
 
 ### Phase 6 — Merge back
 
@@ -99,7 +99,7 @@ git tag -a v<x.y.z> -m "v<x.y.z> — <root-cause fix, one-liner>"
 
 ### Phase 7 — Close the loop
 
-- Close related BACKLOG FEAT (if any): `/session-discipline:backlog` → mark CLOSED.
+- Close related BACKLOG FEAT (if any): `/studio:backlog` → mark CLOSED.
 - Update any live HANDOFF doc: either merge into the CHANGELOG entry or mark it RESOLVED.
 - If any tag (e.g. the failing-state) is still needed for A/B diagnostic work, say so explicitly — do NOT delete the tag.
 

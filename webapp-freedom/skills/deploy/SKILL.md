@@ -96,7 +96,7 @@ Production deploys break in specific ways — missing env var, forgotten migrati
 
 ## If something goes wrong
 
-Invoke `/session-discipline:rollback-release` — this is exactly what it's for. A failed deploy becomes a numbered rollback release, not a silent `git revert`.
+Invoke `/studio:rollback-release` — this is exactly what it's for. A failed deploy becomes a numbered rollback release, not a silent `git revert`.
 
 ## Anti-patterns
 

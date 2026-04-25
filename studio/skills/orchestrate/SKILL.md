@@ -78,9 +78,9 @@ After each task completes, reassess and propose the next action (go back to Phas
 
 ## Arguments
 
-If the user provides a goal after `/session-discipline:orchestrate`, treat it as the **North Star** for the proposal. Examples:
-- `/session-discipline:orchestrate finish ODS124 and release` — goal-directed
-- `/session-discipline:orchestrate` — open-ended, propose based on state alone
+If the user provides a goal after `/studio:orchestrate`, treat it as the **North Star** for the proposal. Examples:
+- `/studio:orchestrate finish ODS124 and release` — goal-directed
+- `/studio:orchestrate` — open-ended, propose based on state alone
 
 ## Anti-patterns (don't do)
 

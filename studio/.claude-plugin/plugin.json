@@ -1,0 +1,9 @@
+{
+  "name": "studio",
+  "description": "Project-management overlay for long-running Claude Code sessions. Advisory orchestration that picks up project state automatically (CHANGELOG, BACKLOG, HANDOFF docs, git, artefacts) and proposes next actions. Plus handoff docs, CHANGELOG continuity, rollback-as-release, user-judged A/B comparisons, structured investigation branches. Domain-agnostic — composes with any of the *-freedom plugins (audio, marketing, figma, webapp, cli, hardware) for full multi-domain workflows. Renamed from session-discipline v0.1.1 (same skills, clearer naming).",
+  "version": "0.2.0",
+  "author": { "name": "Lars van der Loo", "email": "info@larsvanderloo.com" },
+  "homepage": "https://github.com/larsvanderloo/claude-plugins",
+  "repository": "https://github.com/larsvanderloo/claude-plugins",
+  "license": "MIT"
+}

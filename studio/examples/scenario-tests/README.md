@@ -10,8 +10,8 @@ mkdir -p /tmp/sd-test-sandbox && cd /tmp/sd-test-sandbox && git init -q
 echo "hello" > README.md && git add . && git -c user.email=t@t -c user.name=t commit -qm init
 
 # Run:
-claude --plugin-dir <path-to-session-discipline> -p "$(cat common-scenarios.md)"
-claude --plugin-dir <path-to-session-discipline> -p "$(cat edge-scenarios.md)"
+claude --plugin-dir <path-to-studio> -p "$(cat common-scenarios.md)"
+claude --plugin-dir <path-to-studio> -p "$(cat edge-scenarios.md)"
 ```
 
 Compare Claude's predicted invocations to expected. If a mismatch is systemic (not a one-off quirk), the fix lives in the SKILL's **YAML frontmatter `description` field** — that's what Claude's invocation logic reads. The SKILL body is for execution-time guidance, not triggering.

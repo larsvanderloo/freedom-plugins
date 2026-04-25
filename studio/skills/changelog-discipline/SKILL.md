@@ -78,7 +78,7 @@ When the user asks to "keep the changelog up to date" or when you detect tagged 
 Different entries for different reasons:
 
 - **Release** (normal fix / feature): full template above.
-- **Rollback**: see `/session-discipline:rollback-release` skill. Must be its own tagged version with its own entry — NOT an amended revert.
+- **Rollback**: see `/studio:rollback-release` skill. Must be its own tagged version with its own entry — NOT an amended revert.
 - **Workaround**: entry explicitly says "workaround pending <fix-tag>" and references the HANDOFF doc. Example:
   > "v0.20.7 uses cathode sinks as a workaround for the HC solver noise regression. Proper fix pending HANDOFF-v0.20.5-clean-preamp-noise.md H5 investigation."
 

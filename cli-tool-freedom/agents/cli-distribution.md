@@ -156,5 +156,5 @@ If offering a one-liner install (`curl -fsSL https://.../install.sh | sh`):
 
 ## Handoffs
 
-- To `/session-discipline:rollback-release` if a shipped version breaks users — rollback via a new tagged release with pin to previous
+- To `/studio:rollback-release` if a shipped version breaks users — rollback via a new tagged release with pin to previous
 - Back to `cli-impl` if a platform-specific bug surfaces post-release

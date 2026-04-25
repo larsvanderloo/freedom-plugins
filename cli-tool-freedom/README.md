@@ -2,13 +2,13 @@
 
 Claude Code plugin for shipping command-line tools. Three agents + five skills that cover UX design, cross-language implementation, shell completions, and distribution across brew / npm / cargo / scoop / apt / direct-binary.
 
-Language-agnostic — pick Go / Rust / Python / Node at scaffold time, remembered in `LANGUAGE.md`. Designed to layer on [`session-discipline`](../session-discipline).
+Language-agnostic — pick Go / Rust / Python / Node at scaffold time, remembered in `LANGUAGE.md`. Designed to layer on [`studio`](../studio).
 
 ## Install
 
 ```bash
 claude \
-  --plugin-dir ~/Documents/Claude/claude-plugins/session-discipline \
+  --plugin-dir ~/Documents/Claude/claude-plugins/studio \
   --plugin-dir ~/Documents/Claude/claude-plugins/cli-tool-freedom
 ```
 

@@ -10,7 +10,7 @@
 #
 # Usage:
 #   ./scripts/build-zips.sh              # build all plugins
-#   ./scripts/build-zips.sh session-discipline    # build one plugin
+#   ./scripts/build-zips.sh studio    # build one plugin
 
 set -euo pipefail
 

@@ -1,5 +1,5 @@
 ---
-description: Write a HANDOFF-<topic>.md for cross-session continuity when pausing mid-investigation or shipping work-in-progress. Forces repro steps, measurement tables, ranked hypotheses, cost-ordered investigation recipe, success criteria, and artefact index. Use when you're about to stop work on a non-trivial investigation and want the next session (or another dev) to be able to pick it up cold. Triggered by "write a handoff", "pause this investigation", "park this for tomorrow", or explicit `/session-discipline:handoff-doc` invocation.
+description: Write a HANDOFF-<topic>.md for cross-session continuity when pausing mid-investigation or shipping work-in-progress. Forces repro steps, measurement tables, ranked hypotheses, cost-ordered investigation recipe, success criteria, and artefact index. Use when you're about to stop work on a non-trivial investigation and want the next session (or another dev) to be able to pick it up cold. Triggered by "write a handoff", "pause this investigation", "park this for tomorrow", or explicit `/studio:handoff-doc` invocation.
 ---
 
 # Handoff Doc

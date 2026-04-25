@@ -37,14 +37,14 @@ This is not a fresh design — it's an extraction of patterns that worked.
 
 ### Designed to compose with
 
-- `session-discipline` for session overlay (handoff docs, CHANGELOG, rollback-as-release, orchestration)
+- `studio` for session overlay (handoff docs, CHANGELOG, rollback-as-release, orchestration)
 
-### Known overlap with session-discipline
+### Known overlap with studio
 
 `product-orchestrator-agent` (audio-specific) and `session-orchestrator` (domain-agnostic) both exist. Use product-orchestrator-agent when the orchestration is audio-DSP-specific (knows about JUCE, plate voltages, null thresholds); use session-orchestrator for cross-cutting session work (handoffs, changelogs, branch hygiene). They complement each other.
 
 ### Future work
 
-- Once a second audio plugin project uses these agents, iterate descriptions based on real invocation patterns (the same way session-discipline went 0.1.0 → 0.1.1)
+- Once a second audio plugin project uses these agents, iterate descriptions based on real invocation patterns (the same way studio went 0.1.0 → 0.1.1)
 - Consider a `juce-update` skill for keeping JUCE version current
 - Consider integrating `mcp__faust__*` (Faust workspace) and `mcp__context7__search_juce_docs` more tightly

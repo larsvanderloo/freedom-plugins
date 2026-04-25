@@ -1,4 +1,4 @@
-Below are 20 more simulated user messages, harder cases: adversarial, ambiguous, multi-skill, and false-positive traps. For EACH, predict which session-discipline skill (if any) you would invoke. If multiple apply, list them in dispatch order. Format:
+Below are 20 more simulated user messages, harder cases: adversarial, ambiguous, multi-skill, and false-positive traps. For EACH, predict which studio skill (if any) you would invoke. If multiple apply, list them in dispatch order. Format:
 
 N) <skill-or-comma-separated-list-or-"NONE">  — <rationale, under 15 words>
 
