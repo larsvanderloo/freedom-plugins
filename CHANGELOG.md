@@ -2,6 +2,10 @@
 
 Suite-level events. Each plugin maintains its own `<plugin>/CHANGELOG.md` for plugin-specific releases.
 
+## [suite] — 2026-04-25 — FEAT-1 closed: `audio-plugin-freedom` v0.2.0 ships an MCP server
+
+`audio-plugin-freedom` v0.1.2 → v0.2.0 — minor bump for new MCP server bundling 5 JUCE-domain analysis tools (`scan_realtime_safety`, `validate_apvts_layout`, `get_audio_project_state`, `suggest_oversampling_strategy`, `check_pluginval_logs`). Pattern mirrors `studio-mcp` (v0.3.0). See `audio-plugin-freedom/CHANGELOG.md` for tool details. Tagged `audio-plugin-freedom-v0.2.0`.
+
 ## [suite] — 2026-04-25 — FEAT-7 closed: domain-isolation contract across `*-freedom` plugins
 
 ### What changed

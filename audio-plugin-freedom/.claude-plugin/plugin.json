@@ -1,7 +1,7 @@
 {
   "name": "audio-plugin-freedom",
-  "description": "Claude Code plugin for JUCE audio plugin development. Fourteen battle-tested agents (DSP research, planning, foundation, DSP impl, GUI, validation, audio QA, sound design, CI/CD, troubleshooting, UI design, UI finalization, product orchestration) plus 13 skills covering ideation through release. Extracted from the ods-engine Dumble #124 modelling project — proven across 20+ tagged releases. Designed to layer on studio.",
-  "version": "0.1.2",
+  "description": "Claude Code plugin for JUCE audio plugin development. Fourteen battle-tested agents (DSP research, planning, foundation, DSP impl, GUI, validation, audio QA, sound design, CI/CD, troubleshooting, UI design, UI finalization, product orchestration) plus 13 skills covering ideation through release. Now ships with an MCP server (5 tools): scan_realtime_safety, validate_apvts_layout, get_audio_project_state, suggest_oversampling_strategy, check_pluginval_logs. Extracted from the ods-engine Dumble #124 modelling project — proven across 20+ tagged releases. Designed to layer on studio.",
+  "version": "0.2.0",
   "author": {
     "name": "Lars van der Loo",
     "email": "info@larsvanderloo.com"

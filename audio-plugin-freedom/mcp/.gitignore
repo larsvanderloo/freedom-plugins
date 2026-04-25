@@ -1,0 +1,3 @@
+node_modules/
+*.tsbuildinfo
+# dist/ IS committed — it's the bundled MCP server shipped to end users

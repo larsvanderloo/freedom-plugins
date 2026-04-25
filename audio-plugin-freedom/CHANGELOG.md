@@ -1,5 +1,45 @@
 # Changelog
 
+## [0.2.0] — 2026-04-25 — MCP server with 5 JUCE-domain tools (FEAT-1)
+
+### What changed
+
+Ships `audio-plugin-freedom-mcp`, an MCP server bundled with the plugin and registered via `.mcp.json`. Provides 5 tools callable directly by Claude:
+
+| Tool | Purpose |
+|---|---|
+| `scan_realtime_safety` | Walk every `.cpp` source, locate `processBlock`-like methods (processBlock, processBlockBypassed, process, renderNextBlock, processSamples, etc.), flag heap allocs / locks / IO / juce::String literals / container growth / throws / RTTI inside them. Severity-labelled (blocker / major / minor) with rationale per finding. |
+| `validate_apvts_layout` | Parse APVTS parameter declarations (`AudioParameterFloat/Int/Bool/Choice`, with or without `juce::ParameterID{}`). Catches: duplicate IDs (silently dropped by APVTS), min ≥ max, default outside range, choice defaultIndex out of bounds, ID-format hygiene, duplicate display-names. |
+| `get_audio_project_state` | Detect the pipeline stage (Stage 0 research → Stage 1 shell → Stage 2 DSP → Stage 3 GUI → shipping) by inspecting `architecture.md`, `plan.md`, `dsp-research.md`, `DSP_FREEZE.md`, CMakeLists, `PluginProcessor.cpp/.h`, WebView UI presence, and version-tag count. Returns rationale + recommended next actions. Audio-domain-specific complement to studio's generic `find_active_phase`. |
+| `suggest_oversampling_strategy` | Heuristic recommender. Inputs: distortion type (soft-saturation, tube-saturation, asymmetric, hard-clip, wave-fold, bit-crush, ring-mod, fm), highest fundamental, sample rate, CPU budget, preserve_phase. Outputs: factor (1×/2×/4×/8×/16×), filter (halfband-iir, halfband-fir, elliptic-iir, polyphase-fir, lagrange-poly), expected aliasing dB, CPU overhead multiplier, cautions. |
+| `check_pluginval_logs` | Parses pluginval output, categorises findings (audio-thread-allocation, audio-thread-lock, audio-thread-fp, param-out-of-range, state-restore, audio-output, format-validation, thread, memory, init-shutdown). Returns triaged punch list with per-category recommendations that often dispatch to other MCP tools. |
+
+### Implementation
+
+- `mcp/` subdir with package.json + tsconfig + src/{index.ts, state/audio-project.ts, parsers/{cpp-source,apvts-layout,pluginval-log}.ts, tools/*.ts}
+- esbuild bundle to `mcp/dist/index.js` (640 KB), shipped (committed) so end users don't need npm install
+- `.mcp.json` at plugin root registers `audio-plugin-freedom-mcp` via `${CLAUDE_PLUGIN_ROOT}/mcp/dist/index.js`
+- Pattern mirrors `studio-mcp` (v0.3.0 shipped 2026-04-25)
+
+### Why
+
+Suite BACKLOG.md FEAT-1 — closing this leverages the studio MCP pattern in the audio domain. Analyses that previously required Claude to read 20+ source files now return as one structured JSON. Most-valuable cases:
+- **scan_realtime_safety** — RT-safety bugs are the #1 cause of DAW crashes; pluginval can't always catch them at static-analysis time
+- **validate_apvts_layout** — duplicate parameter IDs are silent failures at DAW load time; this catches them before that
+
+### Known limitations
+
+- C++ parsing is heuristic (regex + brace-tracker), not a full Clang AST — false positives possible on creative formatting; see comments per parser
+- APVTS parser supports common JUCE 7+ patterns; very custom builders (helper macros, programmatic loops) need manual inspection
+- pluginval log parser is line-based; handles standard pluginval output, may miss DAW-specific or future format additions
+
+### Files
+
+- `mcp/` (new — entire subdir, including `dist/index.js`)
+- `.mcp.json` (new)
+- `.claude-plugin/plugin.json` — version + description
+- `CHANGELOG.md` — this entry
+
 ## [0.1.2] — 2026-04-25 (domain-isolation contract)
 
 ### What changed

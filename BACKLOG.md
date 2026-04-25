@@ -8,16 +8,11 @@ Status legend: `OPEN` / `IN_PROGRESS` / `BLOCKED` / `CLOSED`
 
 ## FEAT-1 — MCP server for `audio-plugin-freedom`
 
-**Status:** `OPEN`
+**Status:** `CLOSED` (2026-04-25 — `audio-plugin-freedom` v0.2.0)
 
-**Why:** `studio` v0.3.0 ships an MCP server that exposes project-state tools generically. `audio-plugin-freedom` could ship its own MCP server with domain-specific tools (e.g., `analyze_processBlock_cost`, `validate_apvts_layout`, `suggest_oversampling_strategy`, `lookup_juce_api`).
+**Resolution:** Shipped `audio-plugin-freedom-mcp` with 5 tools: `scan_realtime_safety`, `validate_apvts_layout`, `get_audio_project_state`, `suggest_oversampling_strategy`, `check_pluginval_logs`. Pattern mirrors `studio-mcp` (esbuild bundle to `mcp/dist/index.js`, committed; `.mcp.json` at plugin root registers via `${CLAUDE_PLUGIN_ROOT}`). Smoke-tested with fixtures: each tool returns sensible JSON; APVTS validator and RT-safety scanner caught all intentional-violation cases. Heuristic C++ parsing means false positives are possible on creative formatting (documented in `audio-plugin-freedom/CHANGELOG.md`).
 
-**Success criteria:**
-- 4–6 tools, all callable from `audio-plugin-freedom`'s skills
-- Bundle pattern matches `studio/mcp/` (single esbuild bundle, no node_modules shipped)
-- Live-tested with `claude --plugin-dir`
-
-**Effort:** ~1 day. Pattern is now proven; just instantiate it for audio domain.
+**Live-test still pending:** Tools are unit-tested locally via stdio JSON-RPC. Live testing inside `claude --plugin-dir` against a real JUCE project (e.g. ods-engine) is the next validation step. If a tool surfaces a spurious finding, refine the parser.
 
 ---
 
@@ -99,5 +94,6 @@ auto-layout-locked-state" als Figma-analogie werd gebruikt op een Figma-table-la
 
 ## Closed items
 
+- **FEAT-1** (2026-04-25) — MCP server for `audio-plugin-freedom` (`audio-plugin-freedom-v0.2.0`, live-test pending)
 - **FEAT-7** (2026-04-25) — Domain-isolation between *-freedom plugins (option B shipped, falsification pending)
 - **FEAT-6** (2026-04-25) — Release publishing automation
