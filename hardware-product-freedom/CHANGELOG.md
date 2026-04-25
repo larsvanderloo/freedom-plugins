@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.1.1] — 2026-04-25 (subsumes industrial-design-team)
+
+### What changed
+
+- Subsumed `industrial-design-team` plugin. The 5 industrial-design agents (industrial-research, concept, cad-spec, dfm-reviewer, materials) and 5 skills (concept, cad-spec, dfm-review, materials-spec, tolerance-stack) now live ONLY in `hardware-product-freedom`. Eliminates duplication maintenance.
+- For non-electronic projects (mechanical tools, furniture, kitchenware, etc.), users now load `hardware-product-freedom` and simply don't invoke the electronics / manufacturing / compliance skills — those stay dormant.
+- README updated to clarify the dual-mode usage (with-electronics vs. ID-only).
+
+### Migration from `industrial-design-team`
+
+If you had `industrial-design-team` loaded:
+1. Replace it with `hardware-product-freedom` in your `--plugin-dir` flags or claude.ai install
+2. All skill names (`concept`, `cad-spec`, `dfm-review`, etc.) still work — same names, same behaviour
+3. Agent names (`concept`, `cad-spec`, etc.) still work — same names, same behaviour
+4. The `industrial-orchestrator` agent is replaced by `hardware-orchestrator`, which is functionally a superset (knows about electronics + manufacturing in addition to industrial design)
+
+The deleted plugin's git history remains accessible at the `industrial-design-team-v0.1.0` tag.
+
+### Files changed
+
+- All previous `industrial-design-team` content removed from monorepo
+- `hardware-product-freedom/README.md` updated for dual-mode usage
+- Root `README.md` updated (single hardware plugin instead of two)
+
 ## [0.1.0] — 2026-04-25 (initial release)
 
 Initial release of `hardware-product-freedom`, a unified Claude Code plugin for shipping hardware products end-to-end. Combines industrial design + electronics engineering + manufacturing operations into a single coordinated team.

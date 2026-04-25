@@ -12,7 +12,7 @@ You're shipping a hardware product (consumer electronics, audio gear, IoT device
 - Manufacturing setup (CM selection, tooling, FAI, pilot runs)
 - Compliance (FCC, CE, RoHS, EMC, ESD)
 
-For **non-electronic** hardware (mechanical tools, kitchenware, furniture), the lighter [`industrial-design-team`](../industrial-design-team) plugin covers the design portion without electronics overhead.
+For **non-electronic** hardware (mechanical tools, kitchenware, furniture), this same plugin works — just don't invoke the electronics / manufacturing-ops / compliance skills. They stay dormant if you don't dispatch them. The five core ID skills (`concept`, `cad-spec`, `dfm-review`, `materials-spec`, `tolerance-stack`) cover purely-mechanical product design.
 
 For **software audio plugins only** (no hardware), use [`audio-plugin-freedom`](../audio-plugin-freedom).
 
