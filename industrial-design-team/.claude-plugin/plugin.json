@@ -1,0 +1,9 @@
+{
+  "name": "industrial-design-team",
+  "description": "Claude Code plugin for industrial design / hardware product development. Six agents (research, concept, CAD-spec, DFM-reviewer, materials, orchestrator) plus five skills covering concept briefs, parametric CAD specifications, design-for-manufacturing audits, material/finish selection, and tolerance-stack analysis. Deliverables are versioned Markdown documents — specifications and reviews, not CAD files. Designed to brief and critique work done in Fusion 360 / SolidWorks / Onshape, not replace it.",
+  "version": "0.1.0",
+  "author": { "name": "Lars van der Loo", "email": "info@larsvanderloo.com" },
+  "homepage": "https://github.com/larsvanderloo/claude-plugins",
+  "repository": "https://github.com/larsvanderloo/claude-plugins",
+  "license": "MIT"
+}
