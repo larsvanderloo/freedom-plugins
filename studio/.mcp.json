@@ -1,0 +1,9 @@
+{
+  "studio": {
+    "command": "node",
+    "args": ["${CLAUDE_PLUGIN_ROOT}/mcp/dist/index.js"],
+    "startupTimeout": 10000,
+    "restartOnCrash": true,
+    "maxRestarts": 3
+  }
+}

@@ -49,16 +49,37 @@ for plugin in "${plugins[@]}"; do
     version="$(jq -r .version "$plugin/.claude-plugin/plugin.json" 2>/dev/null || echo "unknown")"
     name="$(jq -r .name "$plugin/.claude-plugin/plugin.json" 2>/dev/null || echo "$plugin")"
 
+    # If plugin ships an MCP server (mcp/package.json), ensure it's bundled fresh
+    if [ -f "$plugin/mcp/package.json" ]; then
+        if [ ! -d "$plugin/mcp/node_modules" ]; then
+            echo "  → installing $plugin/mcp deps..."
+            (cd "$plugin/mcp" && npm install --silent)
+        fi
+        if jq -e '.scripts.bundle' "$plugin/mcp/package.json" > /dev/null 2>&1; then
+            echo "  → bundling $plugin MCP server..."
+            (cd "$plugin/mcp" && npm run bundle --silent) || {
+                echo "  ✗ bundle failed for $plugin" >&2
+                continue
+            }
+            chmod +x "$plugin/mcp/dist/index.js" 2>/dev/null || true
+        fi
+    fi
+
     out="$DIST/$plugin.zip"
     rm -f "$out"
 
     # -X strips macOS extra attributes; -q reduces noise
+    # Note: $plugin/dist and $plugin/node_modules excluded at top-level only,
+    # so $plugin/mcp/dist (the MCP bundle) IS included.
     zip -r -X -q "$out" "$plugin" \
         -x "$plugin/.git/*" \
         -x "*.DS_Store" \
         -x "__MACOSX/*" \
         -x "$plugin/dist/*" \
-        -x "$plugin/node_modules/*"
+        -x "$plugin/node_modules/*" \
+        -x "$plugin/mcp/node_modules/*" \
+        -x "$plugin/mcp/src/*" \
+        -x "$plugin/mcp/tsconfig.json"
 
     size_kb="$(du -k "$out" | cut -f1)"
     echo "  ✓ $name v$version → dist/$plugin.zip (${size_kb} KB)"

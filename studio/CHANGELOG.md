@@ -1,5 +1,55 @@
 # Changelog
 
+## [0.3.0] — 2026-04-25 (MCP server: project-state intelligence + cross-session memory)
+
+### What ships
+
+A new `studio-mcp` MCP server bundled inside the plugin (`mcp/dist/index.js`, single self-contained ~650 KB ESM bundle, no `node_modules` shipped). Auto-launched via `.mcp.json` when the plugin is loaded. Exposes **8 tools** under the `studio` namespace:
+
+| Tool | Purpose |
+|---|---|
+| `recommend_plugins` | Filesystem inspection → ordered list of plugins to load (audio/figma/webapp/cli/hardware/marketing), with rationale + the exact `claude --plugin-dir` install command. |
+| `propose_next_action` | Reads project state across all artefacts (CHANGELOG, BACKLOG, HANDOFF docs, git, domain-specific spec files) and proposes the next concrete action. Returns: synthesised state, cross-domain conflicts, numbered actions with effort estimates + dispatch targets, risk flags. The orchestration heart. |
+| `cross_plugin_search` | Free-text search across HANDOFF docs / CHANGELOG / BACKLOG / RESEARCH-BRIEF / spec docs / concepts/ / campaigns/ / post-mortems/. Returns hits with path + line + 3-line context. |
+| `find_active_phase` | Per-domain phase detection. For each detected domain reports current phase, next expected phase, percent-complete based on which artefacts are committed. |
+| `track_decision` | Persist a project-level decision (stack-choice, IC-alternate, concept-pick, API-contract-lock) to `.claude-state/decisions.jsonl` (append-only). |
+| `list_decisions` | Retrieve persisted decisions, optionally filtered by type. Use at session start to remember prior decisions. |
+| `list_committed_artefacts` | Inventory of state files grouped by domain + category. Plus 5 most-recently modified. Orient a fresh session quickly. |
+| `get_open_blockers` | Severity-labelled blockers — handoffs marked in-progress/blocked, BACKLOG IN_PROGRESS or BLOCKED, large uncommitted WIP, detected test failures. |
+
+### Why
+
+The `orchestrate` skill has been the most-used and most-praised feature — it picks up state automatically across sessions and proposes the next action without re-explaining context. v0.3.0 promotes that intelligence from a per-skill heuristic into a structured tool surface that any skill or agent can call. Cross-session decision memory (`.claude-state/decisions.jsonl`) finally gives the plugin a place to remember user decisions across Claude Code sessions, instead of relying on artefact archaeology every time.
+
+### Implementation
+
+- **Stack:** TypeScript ES2022 / Node ≥20 / `@modelcontextprotocol/sdk` v1.29 / `zod` for argument validation
+- **Bundle:** esbuild → single `dist/index.js`, no `node_modules` shipped in the plugin zip
+- **State model:** `mcp/src/state/project-model.ts` builds a unified `ProjectModel` (artefacts, git, handoffs, backlog, changelog, detected domains) once per tool call
+- **Domain detection:** filesystem signatures — JUCE in `CMakeLists.txt` / `.jucer`, `manifest.json` + `code.ts` for figma, React/Vue/Svelte/Next deps for webapp, `Cargo.toml` / `pyproject.toml` / `go.mod` for cli, `HARDWARE-BRIEF` / `ELECTRONICS-ARCH` / `BOM` for hardware, `POSITIONING` / `AUDIENCE` / `BRAND-VOICE` for marketing
+- **Persistence:** append-only JSONL at `.claude-state/decisions.jsonl`; auto-creates a `.gitignore` in the state dir
+
+### Migration from v0.2.0
+
+No breaking changes. All 7 skills + agent + 2 hooks behave identically. The MCP server is additive — load the plugin and the new tools are available alongside existing skills.
+
+End users need **Node ≥20** on PATH for the MCP server to launch. If Node is missing, the rest of the plugin (skills, agents, hooks) still works; only the MCP tools are unavailable.
+
+### Files added
+
+- `.mcp.json` — wires `studio-mcp` to `${CLAUDE_PLUGIN_ROOT}/mcp/dist/index.js`
+- `mcp/package.json`, `mcp/tsconfig.json`
+- `mcp/src/index.ts` — server entry, 8 tool dispatchers
+- `mcp/src/state/project-model.ts` — unified state reader
+- `mcp/src/state/memory.ts` — append-only decision log
+- `mcp/src/tools/{recommend-plugins,propose-next-action,cross-plugin-search,find-active-phase,track-decision,list-artefacts,get-blockers}.ts`
+- `mcp/dist/index.js` — bundled output (committed to plugin so end users don't need to `npm install`)
+
+### Verified
+
+- `tools/list` JSON-RPC returns all 8 tools correctly schema'd
+- `propose_next_action` against real `ods-engine` repo correctly detects `audio` domain (via `CMakeLists.txt` JUCE references), enumerates 14 committed state artefacts, 12 open handoffs, 10 commits ahead of origin, and emits sensible next-action recommendations + risks
+
 ## [0.2.0] — 2026-04-25 (renamed: session-discipline → studio)
 
 ### What changed

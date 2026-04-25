@@ -1,0 +1,30 @@
+{
+  "name": "studio-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for the studio plugin — project-state intelligence + cross-session memory + plugin recommendations.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "studio-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "bundle": "esbuild src/index.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/index.js",
+    "watch": "tsc --watch",
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "esbuild": "^0.28.0",
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

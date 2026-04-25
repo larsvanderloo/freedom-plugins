@@ -1,4 +1,5 @@
-dist/
+/dist/
 .DS_Store
 __MACOSX/
 *.swp
+node_modules/

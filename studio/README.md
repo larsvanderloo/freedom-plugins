@@ -4,7 +4,7 @@
 
 Packaged from patterns extracted from a real multi-week audio-DSP project (see [`examples/ods-engine-arc.md`](examples/ods-engine-arc.md)). Domain-agnostic — works on any codebase.
 
-Ships seven skills, one agent, and two hooks that make long sessions behave less like "ask Claude to do a thing" and more like a disciplined pair-programming loop with a product owner, a handoff-doc habit, a continuous CHANGELOG, rollback discipline, and structured A/B judgement calls.
+Ships seven skills, one agent, two hooks, and an **MCP server with 8 project-state tools** that make long sessions behave less like "ask Claude to do a thing" and more like a disciplined pair-programming loop with a product owner, a handoff-doc habit, a continuous CHANGELOG, rollback discipline, structured A/B judgement calls, and structured cross-session memory.
 
 ## Why this exists
 
@@ -40,6 +40,23 @@ This plugin encodes habits that fix each of those. Each habit is one skill.
 
 - `agent-git-boundary` — injects a forbidden-git-ops block into every subagent dispatch. One loose `git commit` from a subagent can scramble real work; this prevents it.
 - `version-bump-sync` — runs after `git tag`; verifies `CMakeLists.txt` / `package.json` / `Cargo.toml` / `pyproject.toml` version strings match the tag. Warns on drift.
+
+### MCP server (`studio-mcp`, since v0.3.0)
+
+Auto-launched when the plugin loads (via `.mcp.json`). Requires **Node ≥20** on PATH. Exposes 8 tools:
+
+| Tool | Purpose |
+|---|---|
+| `recommend_plugins` | Inspect project filesystem → recommend which `*-freedom` plugins to load. |
+| `propose_next_action` | Read all state and propose the next action. Powers `/studio:orchestrate`. |
+| `cross_plugin_search` | Free-text search across HANDOFFs, CHANGELOG, BACKLOG, specs, concepts, post-mortems. |
+| `find_active_phase` | Per-domain phase detection with percent-complete. |
+| `track_decision` | Persist a decision to `.claude-state/decisions.jsonl` (cross-session memory). |
+| `list_decisions` | Retrieve persisted decisions, optionally filtered by type. |
+| `list_committed_artefacts` | Inventory of state files grouped by domain. |
+| `get_open_blockers` | Severity-labelled blockers — handoffs, backlog, uncommitted WIP, test failures. |
+
+Tools are namespaced as `studio:<tool>` and callable from any skill or agent in the session. Cross-session decisions live at `.claude-state/decisions.jsonl` (auto-`.gitignore`'d).
 
 ## Install
 
