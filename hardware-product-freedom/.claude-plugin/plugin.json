@@ -1,0 +1,9 @@
+{
+  "name": "hardware-product-freedom",
+  "description": "Claude Code plugin for shipping hardware products end-to-end. Combines industrial design + electronics engineering + manufacturing operations into a single coordinated team. 11 agents (industrial-research, concept, cad-spec, dfm-reviewer, materials, electronics-architect, schematic-pcb-spec, bom-supply, compliance-emc, manufacturing-ops, hardware-orchestrator) plus 10 skills covering enclosure CAD, schematic + PCB specs, BOM with supply-chain risk, FCC/CE/RoHS compliance, contract manufacturer selection, pilot runs, and FAI. Designed to layer on session-discipline. Use the lighter industrial-design-team for non-electronic projects.",
+  "version": "0.1.0",
+  "author": { "name": "Lars van der Loo", "email": "info@larsvanderloo.com" },
+  "homepage": "https://github.com/larsvanderloo/claude-plugins",
+  "repository": "https://github.com/larsvanderloo/claude-plugins",
+  "license": "MIT"
+}
