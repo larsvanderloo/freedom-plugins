@@ -101,12 +101,12 @@ else
         gh release create "$TAG" "$ZIP" \
             --title "$PLUGIN v$VERSION" \
             --notes-file "$NOTES_FILE" \
-            "${EXTRA_FLAGS[@]}"
+            ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"}
     else
         gh release create "$TAG" "$ZIP" \
             --title "$PLUGIN v$VERSION" \
             --generate-notes \
-            "${EXTRA_FLAGS[@]}"
+            ${EXTRA_FLAGS[@]+"${EXTRA_FLAGS[@]}"}
     fi
 fi
 
