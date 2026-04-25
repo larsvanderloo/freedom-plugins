@@ -60,23 +60,27 @@ Tools are namespaced as `studio:<tool>` and callable from any skill or agent in 
 
 ## Install
 
-### Local (for development / single-user)
+### Via GitHub Releases (recommended, persistent install)
+
+1. Download the latest `studio.zip` from [github.com/larsvanderloo/freedom-plugins/releases](https://github.com/larsvanderloo/freedom-plugins/releases)
+2. claude.ai → Settings → Plugins → Upload local plugin → select `studio.zip`
+3. Restart any active Claude Code sessions
+
+If migrating from `session-discipline` v0.1.x, uninstall that plugin first to avoid namespace collision (skill names changed `/session-discipline:*` → `/studio:*`).
+
+### Per-session via `--plugin-dir`
 
 ```bash
-# Clone or copy this repo anywhere on disk:
-git clone https://github.com/larsvanderloo/studio-plugin ~/plugins/studio
-
-# Run Claude Code with the plugin loaded:
-claude --plugin-dir ~/plugins/studio
+git clone https://github.com/larsvanderloo/freedom-plugins ~/freedom-plugins
+claude --plugin-dir ~/freedom-plugins/studio
 ```
 
-After a change to the plugin, run `/reload-plugins` inside Claude Code — no need to restart.
+After edits, run `/reload-plugins` inside Claude Code — no restart needed.
 
-### Via marketplace (once published)
+### Requirements
 
-```
-/plugin install studio
-```
+- Claude Code CLI
+- **Node ≥20** on PATH (only required for the MCP tools; skills/agents/hooks work without it)
 
 ## Quick start
 
