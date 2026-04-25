@@ -12,7 +12,8 @@ Monorepo containing my Claude Code plugins. Each top-level directory is a self-c
 | [`webapp-freedom/`](./webapp-freedom) | v0.1.0 | Full-stack web app — product research, data model, API design, end-to-end impl. Stack-agnostic (React/Vue/Svelte × Node/Python/Go × Postgres). |
 | [`cli-tool-freedom/`](./cli-tool-freedom) | v0.1.0 | CLI tool shipping — spec-first design, language-agnostic impl (Go/Rust/Python/Node), shell completions, multi-channel release. |
 | [`audio-plugin-freedom/`](./audio-plugin-freedom) | v0.1.0 | JUCE audio plugin development — 14 agents covering Stage 0 (DSP research) through release. **Battle-tested** on the ods-engine Dumble #124 project across 20+ tagged releases. |
-| [`industrial-design-team/`](./industrial-design-team) | v0.1.0 | Hardware product / industrial design — research, concept, parametric CAD spec, DFM review, materials selection, tolerance-stack analysis. Specifications-not-geometry. |
+| [`industrial-design-team/`](./industrial-design-team) | v0.1.0 | Industrial design only — research, concept, parametric CAD spec, DFM review, materials, tolerance-stack. Lighter sibling of hardware-product-freedom for **non-electronic** projects (mechanical tools, furniture, kitchenware). |
+| [`hardware-product-freedom/`](./hardware-product-freedom) | v0.1.0 | **Full hardware product** — combines industrial design + electronics engineering + manufacturing operations into a unified team. 11 agents + 10 skills covering enclosure, PCB, BOM, compliance (FCC/CE/RoHS), CM selection, FAI. For products WITH electronics. |
 
 ## Installing one plugin
 
@@ -83,13 +84,16 @@ See [`DESIGN-SPECS.md`](./DESIGN-SPECS.md) for the original design notes of the 
 ```
 session-discipline            ← overlay (works with anything)
     │
-    ├── marketing-team-freedom     ← content production (Markdown deliverables)
-    ├── figma-plugin-freedom       ← Figma plugin dev (TypeScript)
-    ├── webapp-freedom             ← full-stack web apps (stack-agnostic)
-    ├── cli-tool-freedom           ← CLI tools (language-agnostic)
-    ├── audio-plugin-freedom       ← JUCE audio plugins (battle-tested)
-    └── industrial-design-team     ← hardware / industrial design (specs not CAD)
+    ├── marketing-team-freedom        ← content production
+    ├── figma-plugin-freedom          ← Figma plugin dev
+    ├── webapp-freedom                ← full-stack web apps
+    ├── cli-tool-freedom              ← CLI tools
+    ├── audio-plugin-freedom          ← JUCE audio plugins
+    ├── industrial-design-team        ← non-electronic ID (lighter)
+    └── hardware-product-freedom      ← full hardware product (ID + EE + mfg)
 ```
+
+**For complex multi-domain projects** (e.g. software-engine → hardware-pedal → market launch), load multiple plugins simultaneously. Each plugin's namespace prevents collisions; orchestrators dispatch within domain; `session-discipline` provides the cross-cutting overlay.
 
 Run any subset you need in a session.
 
