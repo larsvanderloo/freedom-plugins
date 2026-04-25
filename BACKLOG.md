@@ -67,6 +67,35 @@ Status legend: `OPEN` / `IN_PROGRESS` / `BLOCKED` / `CLOSED`
 
 ---
 
+## FEAT-7 — Domain-isolation tussen *-freedom plugins
+
+**Status:** `OPEN`
+
+**Why:** Tijdens een Figma-plugin-sessie (2026-04-25) lekte `audio-plugin-freedom`-context
+(JUCE-framework analogie) in een DSP-vrij Figma-layout-antwoord. Alle *-freedom plugins
+worden tegelijk geladen, dus Claude's reasoning kan domein-grenzen overschrijden zonder
+waarschuwing. Audio-DSP-concepten horen niet in Figma-plugin-werk te verschijnen, en
+omgekeerd.
+
+**Mogelijke fix-richtingen (TBD via investigation):**
+- A. Project-domein detectie (lees CLAUDE.md / projectroot, laad alleen matching plugins).
+- B. Disclaimer/hint in elke *-freedom plugin's CLAUDE.md: "skills/agents in dit plugin
+  zijn domein-specifiek; gebruik geen analogieën uit andere domeinen".
+- C. User-side discipline: alleen relevante plugins enabled houden per project (handmatig).
+
+**Success criteria:**
+- Een sessie in Figma-plugin-project bevat geen JUCE / DSP / audio / pluginval / APVTS
+  termen in Claude's antwoorden tenzij user expliciet daarover vraagt.
+- Idem omgekeerd voor andere domein-paren.
+
+**Effort:** A = multi-day (loading-mechanisme + detectie); B = 1 sessie (CLAUDE.md edits);
+C = 0 code, alleen doc. Aanbevolen: start met B, escaleer naar A als bleed blijft optreden.
+
+**Source incident:** Figma_plugin sessie 2026-04-25, conversatie waarin "JUCE-style
+auto-layout-locked-state" als Figma-analogie werd gebruikt op een Figma-table-layout-vraag.
+
+---
+
 ## FEAT-6 — Release publishing automation
 
 **Status:** `CLOSED` (2026-04-25 — `scripts/release-plugin.sh`)
