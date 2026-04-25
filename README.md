@@ -26,15 +26,39 @@ claude --plugin-dir ./studio
 claude --plugin-dir ./studio --plugin-dir ./audio-plugin-freedom
 ```
 
-## Uploading as zip (claude.ai plugin UI)
+## Downloading a release zip
+
+Each tagged plugin version has a [GitHub Release](https://github.com/larsvanderloo/freedom-plugins/releases) with the built zip attached. No clone or build needed:
+
+1. Open the [Releases page](https://github.com/larsvanderloo/freedom-plugins/releases)
+2. Find the plugin + version you want (e.g. `studio-v0.3.0`)
+3. Download the attached `<plugin>.zip`
+4. Upload via claude.ai → Settings → Plugins → Upload local plugin
+
+## Building zips locally
 
 ```bash
-./scripts/build-zips.sh
-# → produces dist/<plugin-name>.zip for each plugin
-# → upload via claude.ai → Settings → Plugins → Upload local plugin
+./scripts/build-zips.sh                   # all plugins
+./scripts/build-zips.sh studio            # one plugin
+# → produces dist/<plugin-name>.zip
 ```
 
 For plugins shipping an MCP server (currently just `studio`), the build script auto-bundles via `npm run bundle` and ships a single `mcp/dist/index.js` inside the zip — end users don't need `npm install`.
+
+## Publishing a Release (maintainers)
+
+Releases are published from your local machine via `gh` CLI — no GitHub Actions, no CI minutes consumed. Public-repo Releases are free.
+
+```bash
+# Pre-flight: commit + tag + push the version bump
+git tag studio-v0.3.1
+git push origin studio-v0.3.1
+
+# Build + publish in one step:
+./scripts/release-plugin.sh studio
+```
+
+The script reads `<plugin>/.claude-plugin/plugin.json` for the version, builds a fresh zip, extracts the top CHANGELOG entry as release notes, and runs `gh release create` with the zip attached. If a release already exists for the tag, the zip is replaced (`--clobber`).
 
 ## Composition
 

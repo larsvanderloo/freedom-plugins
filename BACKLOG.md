@@ -65,6 +65,18 @@ Status legend: `OPEN` / `IN_PROGRESS` / `BLOCKED` / `CLOSED`
 
 ---
 
+---
+
+## FEAT-6 — Release publishing automation
+
+**Status:** `CLOSED` (2026-04-25 — `scripts/release-plugin.sh`)
+
+**Why:** Tagged plugin versions need built zips downloadable from GitHub for non-cloning end users.
+
+**Resolution:** Local-only script `scripts/release-plugin.sh <plugin>` reads version from plugin.json, builds via `build-zips.sh`, extracts top CHANGELOG entry as release notes, runs `gh release create` with zip attached. No CI / GitHub Actions involved (free on public repos but unnecessary). First use: `studio-v0.3.0` released.
+
+---
+
 ## Closed items
 
-(none yet — backlog seeded 2026-04-25)
+- **FEAT-6** (2026-04-25) — Release publishing automation
