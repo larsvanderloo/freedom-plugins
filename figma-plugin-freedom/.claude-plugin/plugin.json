@@ -1,7 +1,7 @@
 {
   "name": "figma-plugin-freedom",
   "description": "Claude Code plugin for Figma plugin development. Four specialised agents (figma-api-research, manifest-specialist, plugin-runtime, iframe-ui) plus skills for scaffolding, adding commands, postMessage bridging, local test protocols, and Figma Community submission. TypeScript-first. Designed to layer on studio for the session overlay.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": {
     "name": "Lars van der Loo",
     "email": "info@larsvanderloo.com"

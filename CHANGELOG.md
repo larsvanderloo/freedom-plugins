@@ -2,6 +2,43 @@
 
 Suite-level events. Each plugin maintains its own `<plugin>/CHANGELOG.md` for plugin-specific releases.
 
+## [suite] — 2026-04-25 — FEAT-7 closed: domain-isolation contract across `*-freedom` plugins
+
+### What changed
+
+- Added `CLAUDE.md` to each of the 6 `*-freedom` plugins declaring its domain scope and a contract not to import its analogies into other-domain work when this repo is open. `studio` excluded — domain-agnostic by design.
+- Added `scripts/check-domain-isolation.sh` — verifies every `*-freedom` plugin has a `CLAUDE.md` containing the marker `<!-- domain-isolation-marker:v1 -->`. Supports all-plugins sweep (no args) and single-plugin mode (used by `release-plugin.sh`).
+- Wired the check into `scripts/release-plugin.sh` as step 0 (pre-flight gate before tag verification + build). A plugin missing its marker can no longer ship a release.
+- Patch-bumped each `*-freedom` plugin to record the CLAUDE.md addition:
+  - `audio-plugin-freedom` 0.1.1 → 0.1.2
+  - `figma-plugin-freedom` 0.1.1 → 0.1.2
+  - `webapp-freedom` 0.1.1 → 0.1.2
+  - `cli-tool-freedom` 0.1.1 → 0.1.2
+  - `hardware-product-freedom` 0.1.2 → 0.1.3
+  - `marketing-team-freedom` 0.1.1 → 0.1.2
+
+### Why
+
+Real bleed incident on 2026-04-25: during a Figma-plugin session, `audio-plugin-freedom` context (JUCE auto-layout analogy) leaked into a Figma-table-layout answer that had no audio dimension. All `*-freedom` plugins load simultaneously, so Claude's reasoning can cross domain boundaries silently. CLAUDE.md disclaimers give Claude an explicit per-plugin scope when working in-repo. Falsification test required to confirm the disclaimers actually move behaviour (option B from FEAT-7); if not, escalate to option A (project-domain detection in plugin loader).
+
+### Note on `audio-plugin-freedom-v0.1.1` GitHub release
+
+During FEAT-7 work, a smoke-test of the modified `release-plugin.sh` against `audio-plugin-freedom` v0.1.1 caused the existing GitHub release zip to be `--clobber`-replaced with a freshly-built zip containing the new `CLAUDE.md` file. The git tag `audio-plugin-freedom-v0.1.1` is unchanged and still points at commit `bf8801f`. The v0.1.1 zip on GitHub Releases now diverges from the tag content by one file (`CLAUDE.md`). v0.1.2 supersedes cleanly. Lesson: do not invoke publish commands as smoke tests on existing tags.
+
+### Files
+
+- `audio-plugin-freedom/CLAUDE.md` (new)
+- `figma-plugin-freedom/CLAUDE.md` (new)
+- `webapp-freedom/CLAUDE.md` (new)
+- `cli-tool-freedom/CLAUDE.md` (new)
+- `hardware-product-freedom/CLAUDE.md` (new)
+- `marketing-team-freedom/CLAUDE.md` (new)
+- `scripts/check-domain-isolation.sh` (new)
+- `scripts/release-plugin.sh` — pre-flight gate added
+- 6 × `<plugin>/CHANGELOG.md` — version entries
+- 6 × `<plugin>/.claude-plugin/plugin.json` — version bumps
+- `BACKLOG.md` — FEAT-7 closed
+
 ## [suite] — 2026-04-25 — repo rename: `claude-plugins` → `freedom-plugins`
 
 ### What changed

@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.3] — 2026-04-25 (domain-isolation contract)
+
+### What changed
+
+- Added `CLAUDE.md` declaring this plugin's domain (hardware products — ID + electronics + manufacturing) and a contract not to import hardware analogies into non-hardware work when this repo is open.
+- Suite-level: `scripts/check-domain-isolation.sh` enforces the marker presence; called from `release-plugin.sh` as a pre-flight gate.
+
+### Why
+
+Suite BACKLOG.md FEAT-7 — domain bleed between simultaneously-loaded `*-freedom` plugins. Each plugin now ships an explicit scope boundary.
+
+### Files
+
+- `CLAUDE.md` (new)
+- `.claude-plugin/plugin.json` — version bump
+
 ## [0.1.1] — 2026-04-25 (subsumes industrial-design-team)
 
 ### What changed

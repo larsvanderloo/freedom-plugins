@@ -12,6 +12,7 @@
 #   ./scripts/release-plugin.sh studio
 #
 # What it does:
+#   0. Runs ./scripts/check-domain-isolation.sh <plugin> (FEAT-7 pre-flight)
 #   1. Reads <plugin>/.claude-plugin/plugin.json for the version
 #   2. Verifies the matching git tag <plugin>-v<version> exists locally + on origin
 #   3. Runs ./scripts/build-zips.sh <plugin> to produce dist/<plugin>.zip
@@ -55,6 +56,11 @@ fi
 
 VERSION="$(jq -r .version "$PLUGIN_JSON")"
 TAG="${PLUGIN}-v${VERSION}"
+
+# 0. Domain-isolation pre-flight (suite BACKLOG.md FEAT-7).
+#    *-freedom plugins must ship a CLAUDE.md with the isolation marker so domain
+#    bleed (e.g. JUCE analogies leaking into Figma work) is documented + warned.
+"$SCRIPT_DIR/check-domain-isolation.sh" "$PLUGIN"
 
 # 1. Verify tag exists locally
 if ! git rev-parse "$TAG" >/dev/null 2>&1; then

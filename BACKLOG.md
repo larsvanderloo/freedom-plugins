@@ -69,27 +69,18 @@ Status legend: `OPEN` / `IN_PROGRESS` / `BLOCKED` / `CLOSED`
 
 ## FEAT-7 — Domain-isolation tussen *-freedom plugins
 
-**Status:** `OPEN`
+**Status:** `CLOSED` (2026-04-25 — option B shipped)
 
-**Why:** Tijdens een Figma-plugin-sessie (2026-04-25) lekte `audio-plugin-freedom`-context
-(JUCE-framework analogie) in een DSP-vrij Figma-layout-antwoord. Alle *-freedom plugins
-worden tegelijk geladen, dus Claude's reasoning kan domein-grenzen overschrijden zonder
-waarschuwing. Audio-DSP-concepten horen niet in Figma-plugin-werk te verschijnen, en
-omgekeerd.
+**Resolution:** Implemented option B: each `*-freedom` plugin now ships a `CLAUDE.md`
+declaring its domain scope and a contract not to bleed analogies into other domains.
+Suite-level enforcement via `scripts/check-domain-isolation.sh`, wired into
+`release-plugin.sh` as a pre-flight gate. All 6 `*-freedom` plugins patch-bumped to
+record the CLAUDE.md addition. See suite CHANGELOG entry of 2026-04-25.
 
-**Mogelijke fix-richtingen (TBD via investigation):**
-- A. Project-domein detectie (lees CLAUDE.md / projectroot, laad alleen matching plugins).
-- B. Disclaimer/hint in elke *-freedom plugin's CLAUDE.md: "skills/agents in dit plugin
-  zijn domein-specifiek; gebruik geen analogieën uit andere domeinen".
-- C. User-side discipline: alleen relevante plugins enabled houden per project (handmatig).
-
-**Success criteria:**
-- Een sessie in Figma-plugin-project bevat geen JUCE / DSP / audio / pluginval / APVTS
-  termen in Claude's antwoorden tenzij user expliciet daarover vraagt.
-- Idem omgekeerd voor andere domein-paren.
-
-**Effort:** A = multi-day (loading-mechanisme + detectie); B = 1 sessie (CLAUDE.md edits);
-C = 0 code, alleen doc. Aanbevolen: start met B, escaleer naar A als bleed blijft optreden.
+**Falsification still pending:** The hypothesis is that CLAUDE.md disclaimers
+sufficiently constrain Claude's reasoning. Verification requires running a Figma-domain
+question with audio-DSP context salient in a fresh session and checking for bleed. If
+bleed persists, escalate to option A (project-domain detection in the plugin loader).
 
 **Source incident:** Figma_plugin sessie 2026-04-25, conversatie waarin "JUCE-style
 auto-layout-locked-state" als Figma-analogie werd gebruikt op een Figma-table-layout-vraag.
@@ -108,4 +99,5 @@ auto-layout-locked-state" als Figma-analogie werd gebruikt op een Figma-table-la
 
 ## Closed items
 
+- **FEAT-7** (2026-04-25) — Domain-isolation between *-freedom plugins (option B shipped, falsification pending)
 - **FEAT-6** (2026-04-25) — Release publishing automation

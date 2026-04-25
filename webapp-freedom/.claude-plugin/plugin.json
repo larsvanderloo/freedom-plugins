@@ -1,7 +1,7 @@
 {
   "name": "webapp-freedom",
   "description": "Claude Code plugin for full-stack web app development. Stack-agnostic (React/Vue/Svelte frontend; Node/Python/Go backend) — picks stack at scaffold time, remembers via STACK.md. Four agents (product-research, data-model, api-design, frontend+backend impl) plus skills for planning, scaffolding, adding endpoints/pages, E2E tests, and deploys.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": {
     "name": "Lars van der Loo",
     "email": "info@larsvanderloo.com"

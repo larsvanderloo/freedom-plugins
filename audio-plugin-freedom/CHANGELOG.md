@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.1.2] — 2026-04-25 (domain-isolation contract)
+
+### What changed
+
+- Added `CLAUDE.md` declaring this plugin's domain (JUCE audio plugins) and a contract not to import audio/DSP/JUCE analogies into non-audio work when this repo is open.
+- Suite-level: `scripts/check-domain-isolation.sh` enforces the marker presence; called from `release-plugin.sh` as a pre-flight gate.
+
+### Why
+
+Suite BACKLOG.md FEAT-7 — domain bleed between simultaneously-loaded `*-freedom` plugins (e.g. JUCE-style analogies appearing in Figma-plugin work). Each plugin now ships an explicit scope boundary.
+
+### Note on v0.1.1 GitHub release zip
+
+The `audio-plugin-freedom-v0.1.1` zip on GitHub Releases was inadvertently rebuilt + re-uploaded during FEAT-7 work and now contains `CLAUDE.md` (which was not part of the original v0.1.1 commit). The git tag `audio-plugin-freedom-v0.1.1` is unchanged. v0.1.2 supersedes v0.1.1 cleanly.
+
+### Files
+
+- `CLAUDE.md` (new)
+- `.claude-plugin/plugin.json` — version bump
+
 ## [0.1.0] — 2026-04-24 (initial release — extracted from ods-engine)
 
 First public release of `audio-plugin-freedom`, packaging the agent team behind the `ods-engine` Dumble ODS #124 modelling project.

@@ -1,7 +1,7 @@
 {
   "name": "cli-tool-freedom",
   "description": "Claude Code plugin for shipping command-line tools. Three agents (cli-design, cli-impl, cli-distribution) plus skills for scaffolding, adding subcommands + flags, generating shell completions, and releasing to brew / npm / cargo / scoop / apt. Language-agnostic — pick at scaffold time.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": {
     "name": "Lars van der Loo",
     "email": "info@larsvanderloo.com"
